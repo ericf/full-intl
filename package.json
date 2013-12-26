@@ -1,0 +1,21 @@
+{
+    "name": "full-intl",
+    "version": "0.0.0",
+    "description": "",
+    "main": "index.js",
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "dependencies": {
+        "express": "3.4.x",
+        "handlebars": "1.1.x",
+        "intl": "0.x",
+        "consolidate": "0.10.x",
+        "intl-messageformat": "git://github.com/yahoo/intl-messageformat.git#master",
+        "handlebars-helper-intl": "git://github.com/apipkin/handlebars-helper-intl.git#umd-plus"
+    },
+    "author": {
+        "name": "Anthony Pipkin",
+        "email": "a.pipkin@yahoo.com"
+    }
+}

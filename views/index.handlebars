@@ -1,0 +1,129 @@
+<h3>Message</h3>
+<p>
+    {{intlMessage msg.message FIRSTNAME=FIRSTNAME LASTNAME=LASTNAME NUM_BOOKS=NUM_BOOKS}}
+</p>
+
+
+
+{{#intl locale="ru-RU"}}
+
+    {{title}}
+
+    <h3>Message</h3>
+    <p>
+        {{intlMessage msg.message FIRSTNAME=FIRSTNAME LASTNAME=LASTNAME NUM_BOOKS=NUM_BOOKS}}
+    </p>
+
+
+    <h3>Number</h3>
+    <p>
+        {{intl NUM_BOOKS}}
+    </p>
+    <p>
+        {{intl NUM_BOOKS style="percent"}}
+    </p>
+    <p>
+        {{intl NUM_BOOKS currency="USD" style="currency" minimumFractionDigits=2 maximumFractionDigits=2}}
+    </p>
+    <p>
+        {{intl NUM_BOOKS currency="USD" style="currency" minimumFractionDigits=2 maximumFractionDigits=2 locale="ja-JP"}}
+    </p>
+
+
+
+    <h3>Date</h3>
+    <p>
+        {{intl NOW_DATE}}
+    </p>
+    <p>
+        {{intl NOW_DATE weekday="long" year="numeric" month="long" day="numeric"}}
+    </p>
+    <p>
+        {{intl NOW_DATE weekday="long" year="numeric" month="long" day="numeric" timeZone="UTC" timeZoneName="short"}}
+    </p>
+    <p>
+        {{intl NOW_DATE hour="numeric" minute="numeric" second="numeric" timeZoneName="short" }}
+    </p>
+    <p>
+        {{intl NOW_DATE hour="numeric" minute="numeric" second="numeric" timeZoneName="short" locale="ja-JP"}}
+    </p>
+    <p>
+        {{intl NOW_DATE year="numeric" month="numeric" day="numeric" hour="numeric" minute="numeric" second="numeric" hour12=false }}
+    </p>
+
+    <h4>Formats</h4>
+    <p>
+        <b>d: </b>
+        {{intl NOW_DATE format="d"}}
+    </p>
+    <p>
+        <b>D: </b>
+        {{intl NOW_DATE format="D"}}
+    </p>
+    <p>
+        <b>f: </b>
+        {{intl NOW_DATE format="f"}}
+    </p>
+    <p>
+        <b>F: </b>
+        {{intl NOW_DATE format="F"}}
+    </p>
+    <p>
+        <b>g: </b>
+        {{intl NOW_DATE format="g"}}
+    </p>
+    <p>
+        <b>G: </b>
+        {{intl NOW_DATE format="G"}}
+    </p>
+    <p>
+        <b>m: </b>
+        {{intl NOW_DATE format="m"}}
+    </p>
+    <p>
+        <b>M: </b>
+        {{intl NOW_DATE format="M"}}
+    </p>
+    <p>
+        <b>(no formatting) o: </b>
+        {{intl NOW_DATE format="o"}}
+    </p>
+    <p>
+        <b>(no formatting) O: </b>
+        {{intl NOW_DATE format="O"}}
+    </p>
+    <p>
+        <b>r: </b>
+        {{intl NOW_DATE format="r"}}
+    </p>
+    <p>
+        <b>R: </b>
+        {{intl NOW_DATE format="R"}}
+    </p>
+    <p>
+        <b>(no formatting) s: </b>
+        {{intl NOW_DATE format="s"}}
+    </p>
+    <p>
+        <b>t: </b>
+        {{intl NOW_DATE format="t"}}
+    </p>
+    <p>
+        <b>T: </b>
+        {{intl NOW_DATE format="T"}}
+    </p>
+    <p>
+        <b>(no formatting) u: </b>
+        {{intl NOW_DATE format="u"}}
+    </p>
+    <p>
+        <b>U: </b>
+        {{intl NOW_DATE format="U"}}
+    </p>
+    <p>
+        <b>y: </b>
+        {{intl NOW_DATE format="y"}}
+    </p>
+
+
+{{/intl}}
