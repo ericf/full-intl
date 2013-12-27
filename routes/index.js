@@ -1,7 +1,5 @@
 exports.index = function (req, res) {
 
-    console.log(req.app.get('title'));
-
     res.render('index', {
         title: req.app.get('title'),
         locale: req.app.get('locale'),

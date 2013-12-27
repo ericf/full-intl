@@ -13,6 +13,9 @@ var express = require('express'),
 
     app = express();
 
+// context locale?
+locale = 'en-US';
+
 handlebarsHelperIntl.register(handlebars);
 
 app.configure(function () {
