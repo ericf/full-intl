@@ -1,16 +1,15 @@
 exports.index = function (req, res) {
+
+    console.log(req.app.get('title'));
+
     res.render('index', {
-        title: 'Express',
-        locale: 'en-US',
+        title: req.app.get('title'),
+        locale: req.app.get('locale'),
         nowDate: new Date(),
-        msg: [
-            {
-                valueName: 'FIRSTNAME'
-            },
+        MESSAGE: [
+            { valueName: 'FIRSTNAME' },
             ' ',
-            {
-                valueName: 'LASTNAME'
-            },
+            { valueName: 'LASTNAME' },
             ' has ',
             {
                 type: 'plural',

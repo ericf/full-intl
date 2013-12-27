@@ -1,6 +1,6 @@
 <h3>Message</h3>
 <p>
-    {{intlMessage msg.message FIRSTNAME=FIRSTNAME LASTNAME=LASTNAME NUM_BOOKS=NUM_BOOKS}}
+    {{intlMessage MESSAGE FIRSTNAME=FIRSTNAME LASTNAME=LASTNAME NUM_BOOKS=NUM_BOOKS}}
 </p>
 
 
@@ -11,7 +11,7 @@
 
     <h3>Message</h3>
     <p>
-        {{intlMessage msg.message FIRSTNAME=FIRSTNAME LASTNAME=LASTNAME NUM_BOOKS=NUM_BOOKS}}
+        {{intlMessage MESSAGE FIRSTNAME=FIRSTNAME LASTNAME=LASTNAME NUM_BOOKS=NUM_BOOKS}}
     </p>
 
 
@@ -26,7 +26,7 @@
         {{intl NUM_BOOKS currency="USD" style="currency" minimumFractionDigits=2 maximumFractionDigits=2}}
     </p>
     <p>
-        {{intl NUM_BOOKS currency="USD" style="currency" minimumFractionDigits=2 maximumFractionDigits=2 locale="ja-JP"}}
+       en-AU {{intl NUM_BOOKS currency="USD" style="currency" minimumFractionDigits=2 maximumFractionDigits=2 locale="en-AU"}}
     </p>
 
 
@@ -45,10 +45,13 @@
         {{intl NOW_DATE hour="numeric" minute="numeric" second="numeric" timeZoneName="short" }}
     </p>
     <p>
-        {{intl NOW_DATE hour="numeric" minute="numeric" second="numeric" timeZoneName="short" locale="ja-JP"}}
+       {{intl NOW_DATE hour="numeric" minute="numeric" second="numeric" timeZoneName="short"}}
     </p>
     <p>
         {{intl NOW_DATE year="numeric" month="numeric" day="numeric" hour="numeric" minute="numeric" second="numeric" hour12=false }}
+    </p>
+    <p>
+        en-AU: {{intl NOW_DATE year="numeric" month="numeric" day="numeric" hour="numeric" minute="numeric" second="numeric" hour12=false locale="en-AU"}}
     </p>
 
     <h4>Formats</h4>

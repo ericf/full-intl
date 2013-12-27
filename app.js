@@ -11,16 +11,14 @@ var express = require('express'),
     intlMsgFormat = require('intl-messageformat'),
     handlebarsHelperIntl = require('handlebars-helper-intl'),
 
-
     app = express();
-
-// context locale?
-locale = 'en-US';
 
 handlebarsHelperIntl.register(handlebars);
 
 app.configure(function () {
     app.engine('handlebars', engines.handlebars);
+    app.set('title', 'Full Intl');
+    app.set('locale', 'en-US');
     app.set('port', process.env.PORT || 3000);
     app.set('views', __dirname + '/views');
     app.set('view engine', 'handlebars');
