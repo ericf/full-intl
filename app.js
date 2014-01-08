@@ -13,15 +13,12 @@ var express = require('express'),
 
     app = express();
 
-// context locale?
-locale = 'en-US';
-
 handlebarsHelperIntl.register(handlebars);
 
 app.configure(function () {
     app.engine('handlebars', engines.handlebars);
     app.set('title', 'Full Intl');
-    app.set('locale', 'en-US');
+    app.set('locale', 'en-US'); // default locale to be used if the req doesn't send one (uncommon)
     app.set('port', process.env.PORT || 3000);
     app.set('views', __dirname + '/views');
     app.set('view engine', 'handlebars');
