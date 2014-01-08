@@ -1,8 +1,11 @@
 exports.index = function (req, res) {
 
+    console.log( req.headers["accept-language"].split(',')[0]);
+
+
     res.render('index', {
         title: req.app.get('title'),
-        locale: req.app.get('locale'),
+        locale: req.headers["accept-language"].split(',')[0] || req.app.get('locale'),
         nowDate: new Date(),
         MESSAGE: [
             { valueName: 'FIRSTNAME' },
