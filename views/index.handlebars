@@ -3,8 +3,39 @@
     {{intlMessage MESSAGE FIRSTNAME=FIRSTNAME LASTNAME=LASTNAME NUM_BOOKS=NUM_BOOKS}}
 </p>
 
+<h3>Number</h3>
+<p>
+    {{intl NUM_BOOKS}}
+</p>
+<p>
+    {{intlNumber LONG_NUM}}
+</p>
+<p>
+    {{intl NUM_BOOKS style="percent"}}
+</p>
+<p>
+    {{intl NUM_BOOKS currency="USD" style="currency" minimumFractionDigits=2 maximumFractionDigits=2}}
+</p>
+<p>
+   en-AU {{intl NUM_BOOKS currency="USD" style="currency" minimumFractionDigits=2 maximumFractionDigits=2 locale="en-AU"}}
+</p>
+
+    <h3>Date</h3>
+    <p>
+        {{intl NOW_DATE}}
+    </p>
+    <p>
+        {{intl NOW_DATE weekday="long" year="numeric" month="long" day="numeric"}}
+    </p>
+    <p>
+        {{intl NOW_DATE weekday="long" year="numeric" month="long" day="numeric" timeZone="UTC" timeZoneName="short"}}
+    </p>
+    <p>
+        {{intl NOW_DATE hour="numeric" minute="numeric" second="numeric" timeZoneName="short" }}
+    </p>
 
 
+<em>switch to 'ru-RU'</em><br><br>
 {{#intl locale="ru-RU"}}
 
     {{title}}
@@ -18,6 +49,9 @@
     <h3>Number</h3>
     <p>
         {{intl NUM_BOOKS}}
+    </p>
+    <p>
+        {{intlNumber LONG_NUM}}
     </p>
     <p>
         {{intl NUM_BOOKS style="percent"}}

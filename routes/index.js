@@ -25,6 +25,7 @@ exports.index = function (req, res) {
         FIRSTNAME: 'Anthony',
         LASTNAME: 'Pipkin',
         NUM_BOOKS: 2,
+        LONG_NUM: 123456.789,
         NOW_DATE: new Date()
     });
 };
