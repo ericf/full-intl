@@ -1,43 +1,39 @@
 var express = require('express'),
-    exphbs = require('express3-handlebars'),
-    routes = require('./routes'),
-    http = require('http'),
+    exphbs  = require('express3-handlebars'),
 
-    intl = require('intl'),
-    intlMsgFormat = require('intl-messageformat'),
-    handlebarsHelperIntl,
+    routes = require('./routes');
 
-    app = express(),
-    hbs = exphbs.create({
-        defaultLayout: 'main'
-    });
 
+// TODO: Awkward how these need to be required like this but never used.
+require('intl');
+require('intl-messageformat');
+require('intl-messageformat/locale-data/en');
 global.Intl || (global.Intl = global.IntlPolyfill);
 
-handlebarsHelperIntl = require('handlebars-helper-intl');
-require('intl-messageformat/locale-data/en.js');
-handlebarsHelperIntl.register(hbs.handlebars);
+var app = express();
+app.set('port', process.env.PORT || 3000);
 
+var hbs = exphbs.create({
+    defaultLayout: 'main',
+    helpers      : require('handlebars-helper-intl').helpers
+});
 
 app.engine('handlebars', hbs.engine);
 app.set('view engine', 'handlebars');
 
-app.set('title', 'Full Intl');
-app.set('locale', 'en-US'); // default locale to be used if the req doesn't send one (uncommon)
-app.set('port', process.env.PORT || 3000);
+app.locals({
+    title : 'Full Intl',
 
+    // Default locale
+    locale: 'en-US'
+});
 
-app.configure("development", function () {
+app.configure('development', function () {
     app.use(express.errorHandler());
 });
 
 app.get('/', routes.index);
 
-http.createServer(app).listen(app.get('port'), function () {
+app.listen(app.get('port'), function () {
     console.log('Express server listening on port ' + app.get('port'));
 });
-
-
-
-
-

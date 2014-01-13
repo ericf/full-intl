@@ -1,0 +1,18 @@
+{
+    "USERS_BOOKS": [
+        {"valueName": "firstName"},
+        " ",
+        {"valueName": "lastName"},
+        " has ",
+        {
+            "type"     : "plural",
+            "valueName": "numBooks",
+
+            "options": {
+                "one"  : "${#} book",
+                "other": "${#} books"
+            }
+        },
+        "."
+    ]
+}

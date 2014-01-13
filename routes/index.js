@@ -1,31 +1,16 @@
 exports.index = function (req, res) {
 
-    console.log( req.headers["accept-language"].split(',')[0]);
-
+    var locale = req.headers['accept-language'].split(',')[0] ||
+            app.locals.locale;
 
     res.render('index', {
-        title: req.app.get('title'),
-        locale: req.headers["accept-language"].split(',')[0] || req.app.get('locale'),
-        nowDate: new Date(),
-        MESSAGE: [
-            { valueName: 'FIRSTNAME' },
-            ' ',
-            { valueName: 'LASTNAME' },
-            ' has ',
-            {
-                type: 'plural',
-                valueName: 'NUM_BOOKS',
-                options: {
-                    one: '${#} book',
-                    other: '${#} books'
-                }
-            },
-            '.'
-        ],
-        FIRSTNAME: 'Anthony',
-        LASTNAME: 'Pipkin',
-        NUM_BOOKS: 2,
-        LONG_NUM: 123456.789,
-        NOW_DATE: new Date()
+        locale: locale,
+        i18n  : require('../i18n/' + locale),
+
+        user: {
+            firstName: 'Anthony',
+            lastName : 'Pipkin',
+            numBooks : 2
+        }
     });
 };
