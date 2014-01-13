@@ -10,7 +10,7 @@ exports.index = function (req, res) {
         user: {
             firstName: 'Anthony',
             lastName : 'Pipkin',
-            numBooks : 2
+            numBooks : 2000
         }
     });
 };

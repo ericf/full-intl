@@ -3,7 +3,6 @@ var express = require('express'),
 
     routes = require('./routes');
 
-
 // TODO: Awkward how these need to be required like this but never used.
 require('intl');
 require('intl-messageformat');
