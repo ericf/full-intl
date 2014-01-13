@@ -1,7 +1,7 @@
 exports.index = function (req, res) {
 
-    var locale = req.headers['accept-language'].split(',')[0] ||
-            app.locals.locale;
+    var app    = req.app,
+        locale = req.acceptsLanguage(app.get('locales')) || app.locals.locale;
 
     res.render('index', {
         locale: locale,

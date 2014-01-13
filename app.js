@@ -2,6 +2,8 @@
 
 var express = require('express'),
     exphbs  = require('express3-handlebars'),
+    fs      = require('fs'),
+    path    = require('path'),
 
     routes = require('./routes');
 
@@ -17,6 +19,13 @@ app.set('view engine', 'handlebars');
 app.engine('handlebars', exphbs({
     defaultLayout: 'main',
     helpers      : require('handlebars-helper-intl').helpers
+}));
+
+// Get list of the app's supported locales by looking for files in its i18n dir.
+app.set('locales', fs.readdirSync('./i18n/').filter(function (file) {
+    return path.extname(file) === '.json';
+}).map(function (file) {
+    return path.basename(file, '.json');
 }));
 
 app.locals({
