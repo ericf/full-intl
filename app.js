@@ -12,14 +12,11 @@ global.Intl || (global.Intl = global.IntlPolyfill);
 
 var app = express();
 app.set('port', process.env.PORT || 3000);
-
-var hbs = exphbs.create({
+app.set('view engine', 'handlebars');
+app.engine('handlebars', exphbs({
     defaultLayout: 'main',
     helpers      : require('handlebars-helper-intl').helpers
-});
-
-app.engine('handlebars', hbs.engine);
-app.set('view engine', 'handlebars');
+}));
 
 app.locals({
     title : 'Full Intl',
