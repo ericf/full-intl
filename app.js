@@ -1,13 +1,15 @@
+'use strict';
+
 var express = require('express'),
     exphbs  = require('express3-handlebars'),
 
     routes = require('./routes');
 
-// TODO: Awkward how these need to be required like this but never used.
-require('intl');
+// TODO: Awkward how these need to be required like this but never used. Should
+// this be loading all of the `intl-messageformat` locale-data?
+global.Intl || (global.Intl = require('intl'));
 require('intl-messageformat');
 require('intl-messageformat/locale-data/en');
-global.Intl || (global.Intl = global.IntlPolyfill);
 
 var app = express();
 app.set('port', process.env.PORT || 3000);
