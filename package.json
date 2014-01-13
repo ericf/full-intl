@@ -8,10 +8,9 @@
     },
     "dependencies": {
         "express": "3.4.x",
-        "handlebars": "1.1.x",
+        "express3-handlebars": "~0.5",
         "intl": "0.x",
-        "consolidate": "0.10.x",
-        "intl-messageformat": "git://github.com/yahoo/intl-messageformat.git#master",
+        "intl-messageformat": "git://github.com/apipkin/intl-messageformat.git#token-22",
         "handlebars-helper-intl": "git://github.com/apipkin/handlebars-helper-intl.git#umd-plus"
     },
     "author": {
