@@ -5,14 +5,22 @@
         {"valueName": "lastName"},
         " has ",
         {
+            "type"     : "number",
+            "valueName": "numBooks",
+            "format"   : "integer"
+        },
+        " ",
+        {
             "type"     : "plural",
             "valueName": "numBooks",
 
             "options": {
-                "one"  : "${#} book",
-                "other": "${#} books"
+                "one"  : "book",
+                "other": "books"
             }
         },
         "."
-    ]
+    ],
+
+    "TITLE": "Full Intl"
 }

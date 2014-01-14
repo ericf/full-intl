@@ -29,8 +29,6 @@ app.set('locales', fs.readdirSync('./i18n/').filter(function (file) {
 }));
 
 app.locals({
-    title : 'Full Intl',
-
     // Default locale
     locale: 'en-US'
 });
