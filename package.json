@@ -10,8 +10,8 @@
         "express": "3.4.x",
         "express3-handlebars": "~0.5",
         "intl": "0.x",
-        "intl-messageformat": "git://github.com/apipkin/intl-messageformat.git#token-22",
-        "handlebars-helper-intl": "git://github.com/apipkin/handlebars-helper-intl.git#umd-plus"
+        "intl-messageformat": "yahoo/intl-messageformat",
+        "handlebars-helper-intl": "ericf/handlebars-helper-intl#simplified"
     },
     "author": {
         "name": "Anthony Pipkin",
