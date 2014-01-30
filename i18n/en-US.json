@@ -22,5 +22,27 @@
         "."
     ],
 
-    "TITLE": "Full Intl"
+    "BOOKS_ON": [
+        {"valueName": "numBooks"},
+        " ",
+        {
+            "type"     : "plural",
+            "valueName": "numBooks",
+
+            "options": {
+                "one"  : "book",
+                "other": "books"
+            }
+        },
+        " for ",
+        {"valueName": "price"},
+        " on ",
+        {
+            "type"     : "date",
+            "valueName": "dateBooks",
+            "format"   : "short"
+        }
+    ],
+
+    "TITLE": ["Full Intl"]
 }

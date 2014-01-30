@@ -2,7 +2,10 @@
 <html>
 <head>
     <meta charset="utf-8">
-    <title>{{intl i18n.TITLE}}</title>
+
+  {{#intl locales=intl.locale messages=intl.messages}}
+    <title>{{intlMessage intlName="TITLE"}}</title>
+  {{/intl}}
 </head>
 
 <body>

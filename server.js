@@ -1,25 +1,33 @@
 'use strict';
 
+global.Intl || (global.Intl = require('intl'));
+
 var express = require('express'),
     exphbs  = require('express3-handlebars'),
     fs      = require('fs'),
     path    = require('path'),
+    intlMsg = require('intl-messageformat'),
+    hbsIntl = require('handlebars-helper-intl'),
 
     routes = require('./routes');
-
-// TODO: Awkward how these need to be required like this but never used. Should
-// this be loading all of the `intl-messageformat` locale-data?
-global.Intl || (global.Intl = require('intl'));
-require('intl-messageformat');
-require('intl-messageformat/locale-data/en');
 
 var app = express();
 app.set('port', process.env.PORT || 3000);
 app.set('view engine', 'handlebars');
 app.engine('handlebars', exphbs({
     defaultLayout: 'main',
-    helpers      : require('handlebars-helper-intl').helpers
+    helpers      : hbsIntl.helpers
 }));
+
+// Setup Intl Message Format
+require('intl-messageformat/locale-data/en');
+// intlMsg.registerFormats({
+//     date: {
+//         short: {
+//             month: 'numeric'
+//         }
+//     }
+// });
 
 // Get list of the app's supported locales by looking for files in its i18n dir.
 app.set('locales', fs.readdirSync('./i18n/').filter(function (file) {
@@ -28,10 +36,7 @@ app.set('locales', fs.readdirSync('./i18n/').filter(function (file) {
     return path.basename(file, '.json');
 }));
 
-app.locals({
-    // Default locale
-    locale: 'en-US'
-});
+app.set('default locale', 'en-US');
 
 app.configure('development', function () {
     app.use(express.errorHandler());

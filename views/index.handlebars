@@ -1,4 +1,15 @@
+{{#intl locales=intl.locale messages=intl.messages}}
+
 <p>
-    {{intlMessage i18n.USERS_BOOKS
-        firstName=user.firstName lastName=user.lastName numBooks=user.numBooks}}
+    {{intlMessage intlName="USERS_BOOKS"
+            firstName=user.firstName lastName=user.lastName
+            numBooks=user.numBooks dateBooks=user.dateBooks}}
 </p>
+
+  {{#intl locales="fr-FR"}}
+    <p>
+        {{intlMessage "The number is: {num, number, integer}" num=2000}}
+    </p>
+  {{/intl}}
+
+{{/intl}}
