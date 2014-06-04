@@ -1,15 +1,36 @@
-{{#intl locales=intl.locale messages=intl.messages}}
+{{#intl formats=intl.formats locales=intl.locale messages=intl.messages}}
 
+<h2>Example messages</h2>
+<h3>USERS_BOOKS:</h3>
 <p>
+
     {{intlMessage intlName="USERS_BOOKS"
-            firstName=user.firstName lastName=user.lastName
-            numBooks=user.numBooks dateBooks=user.dateBooks}}
+        firstName=user.firstName lastName=user.lastName
+        numBooks=user.numBooks dateBooks=user.dateBooks}}
 </p>
 
-  {{#intl locales="fr-FR"}}
-    <p>
-        {{intlMessage "The number is: {num, number, integer}" num=2000}}
-    </p>
-  {{/intl}}
+<h3>BOOKS_ON:</h3>
+<p>
+
+    {{intlMessage intlName="BOOKS_ON"
+        numBooks=user.numBooks dateBooks=user.dateBooks
+        price=user.price}}
+</p>
+
+
+<h3>intlMessage number for (fr-FR)</h3>
+{{#intl locales="fr-FR"}}
+<p>
+    {{intlMessage "The number is: {num, number, integer}" num=40000}}
+</p>
+{{/intl}}
+
+<h3>intlMessage number for (de-DE)</h3>
+{{#intl locales="de-DE"}}
+<p>
+    {{intlMessage "The number is: {num, number, integer}" num=40000}}
+</p>
+{{/intl}}
+
 
 {{/intl}}

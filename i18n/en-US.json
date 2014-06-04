@@ -1,48 +1,5 @@
 {
-    "USERS_BOOKS": [
-        {"valueName": "firstName"},
-        " ",
-        {"valueName": "lastName"},
-        " has ",
-        {
-            "type"     : "number",
-            "valueName": "numBooks",
-            "format"   : "integer"
-        },
-        " ",
-        {
-            "type"     : "plural",
-            "valueName": "numBooks",
-
-            "options": {
-                "one"  : "book",
-                "other": "books"
-            }
-        },
-        "."
-    ],
-
-    "BOOKS_ON": [
-        {"valueName": "numBooks"},
-        " ",
-        {
-            "type"     : "plural",
-            "valueName": "numBooks",
-
-            "options": {
-                "one"  : "book",
-                "other": "books"
-            }
-        },
-        " for ",
-        {"valueName": "price"},
-        " on ",
-        {
-            "type"     : "date",
-            "valueName": "dateBooks",
-            "format"   : "short"
-        }
-    ],
-
-    "TITLE": ["Full Intl"]
+    "USERS_BOOKS": "{firstName} {lastName} has {numBooks, number, integer} {numBooks, plural, one {book} other {books}}",
+    "BOOKS_ON": "{numBooks, number, integer} {numBooks, plural, one {book} other {books}} for {price, number, usd} on {dateBooks, date, short}",
+    "TITLE": "Full Intl Demo"
 }
