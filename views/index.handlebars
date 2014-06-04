@@ -1,9 +1,18 @@
-{{#intl locales=intl.locale messages=intl.messages}}
+{{#intl locales=intl.locale messages=intl.messages formats=intl.formats}}
 
 <p>
-    {{intlMessage intlName="USERS_BOOKS"
-            firstName=user.firstName lastName=user.lastName
-            numBooks=user.numBooks dateBooks=user.dateBooks}}
+    {{intlMessage (intlGet "messages.USERS_BOOKS")
+            firstName=user.firstName
+            lastName=user.lastName
+            numBooks=user.numBooks}}
+</p>
+
+<p>
+    {{intlMessage (intlGet "messages.BOOKS_ON")
+            books=(intlNumber 2000)
+            numBooks=10
+            price=1000
+            dateBooks=now}}
 </p>
 
   {{#intl locales="fr-FR"}}
