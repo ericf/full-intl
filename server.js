@@ -1,33 +1,31 @@
 'use strict';
 
-global.Intl || (global.Intl = require('intl'));
+var Intl = global.Intl || require('intl');
 
-var express = require('express'),
-    exphbs  = require('express3-handlebars'),
-    fs      = require('fs'),
-    path    = require('path'),
-    intlMsg = require('intl-messageformat'),
-    hbsIntl = require('handlebars-helper-intl'),
+// TODO: This should be required by `handlebars-helper-intl`.
+require('intl-messageformat');
 
-    routes = require('./routes');
+var fs           = require('fs'),
+    path         = require('path'),
+    express      = require('express'),
+    errorHandler = require('errorhandler'),
+    exphbs       = require('express3-handlebars'),
+    Handlebars   = require('handlebars'),
+    hbsIntl      = require('handlebars-helper-intl');
 
-var app = express();
+// -----------------------------------------------------------------------------
+
+var app = express(),
+    hbs = exphbs.create({defaultLayout: 'main'});
+
 app.set('port', process.env.PORT || 3000);
 app.set('view engine', 'handlebars');
 app.engine('handlebars', exphbs({
     defaultLayout: 'main',
-    helpers      : hbsIntl.helpers
+    handlebars   : Handlebars
 }));
 
-// Setup Intl Message Format
-require('intl-messageformat/locale-data/en');
-// intlMsg.registerFormats({
-//     date: {
-//         short: {
-//             month: 'numeric'
-//         }
-//     }
-// });
+hbsIntl.registerWith(Handlebars);
 
 // Get list of the app's supported locales by looking for files in its i18n dir.
 app.set('locales', fs.readdirSync('./i18n/').filter(function (file) {
@@ -38,12 +36,41 @@ app.set('locales', fs.readdirSync('./i18n/').filter(function (file) {
 
 app.set('default locale', 'en-US');
 
-app.configure('development', function () {
-    app.use(express.errorHandler());
-});
+app.route('/')
+    .get(function (req, res, next) {
+        var app     = req.app,
+            locales = app.get('locales'),
+            locale  = req.acceptsLanguage(locales) || app.get('default locale');
 
-app.get('/', routes.index);
+        res.render('index', {
+            intl: {
+                locale  : locale,
+                messages: require('./i18n/' + locale),
+
+                formats: {
+                    number: {
+                        USD: {
+                            style   : 'currency',
+                            currency: 'USD'
+                        }
+                    }
+                }
+            },
+
+            user: {
+                firstName: 'Anthony',
+                lastName : 'Pipkin',
+                numBooks : 2000
+            },
+
+            now: new Date()
+        });
+    });
+
+if (app.get('env') === 'development') {
+    app.use(errorHandler());
+}
 
 app.listen(app.get('port'), function () {
-    console.log('Express server listening on port ' + app.get('port'));
+    console.log('Full Intl server listening on port %d', app.get('port'));
 });
